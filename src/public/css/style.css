@@ -134,6 +134,15 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   
 }
 
+#loader2 {
+  
+  display: none;
+  left: 55%;
+  width: 30px;
+  height: 30px;
+  
+}
+
 #error {
   display: none;
   background-color: darkred;

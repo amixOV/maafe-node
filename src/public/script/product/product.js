@@ -100,6 +100,7 @@ let img = document.getElementById('single_img');
     })
 
     const handleImageUpload = event => {
+        turn2('on');
         event.preventDefault();
         const files = event.target.files
         const formData = new FormData()
@@ -115,9 +116,11 @@ let img = document.getElementById('single_img');
             img.value = data;
          //   console.log(img);
          //   console.log(data)
+         turn2('off');
         })
         .catch(error => {
           console.error(error)
+          turn2('off');
         })
         
     }
