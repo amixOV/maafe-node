@@ -1,0 +1,61 @@
+<h3><%- title %></h3>
+<div class="container">
+  <form action="" id="myForm" method="post">  
+    <div class="row">
+      <div class="input-field col s4">
+        <i class="material-icons prefix">account_circle</i>
+        <input name="customer_name" id="name" type="text" class="validate" required>
+        <label for="name" data-error="wrong" data-success="right">שם הלקוח</label>
+        <span class="helper-text" data-error="שדה חובה" data-success="right"></span>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">phone</i>
+        <input name="customer_phone" id="phone" type="tel" class="validate">
+        <label for="phone">מס טלפון</label>
+      </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">email</i>
+        <input name="customer_mail" id="cost" type="email" class="validate">
+        <label for="cost">אי-מייל</label>
+        <span class="helper-text" data-error="האימייל לא תקין" data-success="right"></span>
+      </div>
+    </div>
+    <h4>  <%= typeof msg != 'undefined' ? msg : '' %> </h4>
+    
+    <br>
+      <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+      <div class="row">
+        <div class="col s4"></div>
+        <a id="button" class="waves-effect waves-light btn-large col s4"><i class="material-icons left">cloud</i>הכנס לקוח חדש</a>
+        <div class="col s4"></div>
+      </div>
+    </form>
+</div>
+
+<h3>רשימת לקוחות</h3>      
+<%- include('./part/loader'); %> 
+<div id="error">ERROR : </div>
+<div class="row">
+  <div class="col s1 m2"></div>
+  <div class="col s9 m8">
+      <table class="responsive-table  centered highlight">
+      <tbody id="table">
+        <tr>
+          <th>שם</th>
+          <th>טלפון</th>
+          <th>אי-מייל</th>
+        </tr>  
+      </tbody>  
+    </table>
+  </div>
+  <div class="col s2 m2 just-mobile">
+    <i id="arrow_product" class="material-icons small keyboard_arrow_right">chevron_right</i>
+  </div>
+</div>
+
+<script src="script/loader.js"></script>
+<script src="script/get_data.js"></script>
+<script src="script/error.js"></script>
+<script src="script/customer/customer.js"></script>
+
+

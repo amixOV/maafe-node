@@ -1,46 +1,46 @@
   
-  //   -- to make server here with express --
   if(process.env.NODE_ENV !== 'production'){
     const dotenv = require('dotenv').config();
   }
 
   const express = require('express');
   const app = express();
-  const PORT = 5500;
-  const indexRouter = require('./src/routes/index');
+  const path = require('path');
+  const expressLayouts = require('express-ejs-layouts');
   
+  const PORT = 5500;
+
+  const indexRouter = require('./src/routes/index');
+  const productRouter = require('./src/routes/product.js');
+
+  app.set('views', path.join(__dirname, 'src/view'));
+  app.set('view engine', 'ejs');
+  app.set('layout', 'layouts/layout');
+  app.use(expressLayouts)
+
   app.listen(process.env.PORT || PORT, () => {
     console.log('app listening in port :' + PORT);
   });
 
   app.use(express.static(__dirname + '/src/public'));
-
+  app.get('/', indexRouter);
   app.get('/some_page', indexRouter);
-  app.get('/mmm/:id', indexRouter);
-  app.get('/product', indexRouter)
+  app.get('/product_item/:id/:name/:cost', indexRouter);
+  app.get('/product', indexRouter);
+  app.get('/customer', indexRouter);
+  app.get('/customer_item/:name', indexRouter);
+  app.get('/recipes', indexRouter);
+  app.get('/help', indexRouter);
   
-  app.use(express.json({limit:"100kb"}));
-  app.post('/api',  async (req, res, next) => {
-  const insertToDB = require('./src/models/server/send_data.js');
+  app.post('/send_data', productRouter);
+  app.post('/db_data', productRouter);
+  app.post('/saveImage', productRouter);
 
-      try {
-        let ans = await insertToDB(req.body);
-        res.send(ans);
-        res.end();
-        
-      } catch (error) {
-        return next('from the main index : ' + error);
-        
-      }
-  });
+  const newRouter = require('./src/routes/new_route.js')
 
-  app.get('/db_data', async (req, res, next) => {
-    const dataFromDB = require('./src/models/server/get_data.js');
-    const obj = await dataFromDB();
-    res.send(obj);
-    res.end();
-  });
-
-  app.use(function (req, res, next) {
-    res.status(404).send("Sorry can't find that!")
-  })
+  app.use('/abc', newRouter)
+  
+app.use( (req, res, next) => {
+  res.status(404).send("Sorry can't find that!")
+})
+ 

@@ -1,0 +1,72 @@
+  <h3><%- title %></h3>
+  <div class="container">
+    <form action="" id="myForm" method="post" enctype="mlitipart/form-data">  
+      <div class="row">
+        <div class="input-field col s4">
+          <i class="material-icons prefix">fingerprint</i>
+          <input name="product_id" id="id" type="number" class="validate" required>
+          <label for="id" data-error="wrong" data-success="right">id product</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">mode_edit</i>
+          <input name="product_name" id="name" type="text" class="validate" required>
+          <label for="name">שם המוצר</label>
+        </div>
+        <div class="input-field col s4">
+          <i class="material-icons prefix">credit_card</i>
+          <input name="pro_cost" id="cost" type="number" class="validate" required>
+          <label for="cost">מחיר המוצר</label>
+        </div>
+      </div>
+      <h4>  <%= typeof msg != 'undefined' ? msg : '' %> </h4>
+      <div class = "row">
+        <div class = "col s6">
+          <label>  -תמונת מוצר ראשית -נדרש </label>
+          <div class = "file-field input-field">
+            <div class = "btn">
+              <span>...תמונה</span>
+              <input type="file" name="single_img" id="up_single_img" />
+            </div>
+            <div class = "file-path-wrapper">
+              <i class="material-icons prefix">add_a_photo</i>
+              <input id="single_img" class="file-path validate" type="text" required/>
+            </div>
+          </div>
+        </div> 
+        <div class="col s6"> 
+          <label> בחירה מרובה של תמונות </label>
+          <div class = "file-field input-field">
+            <div class = "btn">
+              <span>...תמונות</span>
+              <input type = "file" mlitiple />
+            </div>
+            <div class = "file-path-wrapper">
+              <i class="material-icons prefix">add_to_photos</i>
+              <input name="mlity_img" id="mlity_img" class = "file-path validate" type = "text"  />
+            </div>
+          </div>
+        </div>    
+      </div>
+      <br>
+        <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">library_books</i>
+          <textarea name="pro_contant" id="contant" class="materialize-textarea"></textarea>
+          <label for="contant">תאור המוצר</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s4"></div>
+        <a id="button" class="waves-effect waves-light btn-large col s4"><i class="material-icons left">cloud</i>הכנס מוצר חדש</a>
+        <div class="col s4"></div>
+      </div>
+    </form>
+  <%- include('part/product_table'); %> 
+  </div>
+
+<script src="script/loader.js"></script>
+<script src="script/get_data.js"></script>
+<script src="script/error.js"></script>
+<script src="script/product/product.js"></script>

@@ -1,30 +1,52 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+
+const style = '/css/style.css';
 
 router.get('/some_page', (req, res) => {
     res.send('this text come from router');
 })
 
-router.get('/mmm/:id', (req, res) => {
-    res.send('this is moshe page : ' +  req.params.id +
-            '<br>you can change the number : '+
-            '<br>by changing the number in the url' )
-    console.log( req.params.id );
-        
+router.get('/', async (req, res) => {
+    const getCovid = require('./../models/apis/get_covid.js');
+    const imgPath = require('./../models/img_path.js');
+    const api = await getCovid();
+    const imgArr = await imgPath();
+    
+    res.render('index', { title: 'home page', style, imgArr, api});
 });
+
+router.get('/customer', (req, res) => {
+    res.render('customer', { title: 'customer', style });
+})
+
+router.get('/customer_item/:name', (req, res) => {
+    res.render('customer_item', {
+        title: req.params.name,
+        name: req.params.name,
+        style
+    });
+})
+
+router.get('/recipes', (req, res) => {
+    res.render('recipes', { title: 'recipes', style });
+})
 
 router.get('/product', (req, res) => {
-    res.sendFile(path.resolve(__dirname + './../view/product.html') );
-});
+    res.render('product', { title: 'product', style });
+})
 
-/*
-router.get('/help', (req, res) => {
-    const helpPage = path.join(__dirname, 'src/public/help.html');
-    fs.readFile(helpPage, (err, data) => {
-    res.write(data);
-    res.end();
+router.get('/product_item/:id/:name/:cost', (req, res) => {
+    const pro = {
+        id:req.params.id,
+        name:req.params.name,
+        cost:req.params.cost
+    }
+    res.render('product_item', { 
+        title:'product item',
+        style, 
+        pro
     });
 });
-*/
+
 module.exports = router;

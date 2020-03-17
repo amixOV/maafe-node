@@ -1,0 +1,16 @@
+<h3>wellcome to maffe maale</h3>
+<div class="row">
+    <%- include('./part/carusel'); %>
+    
+</div>
+<div>
+    <% for (var key in api) { %>
+        <p>מחוז : <%= api[key].province %></p>
+        <p>ארץ : <%= api[key].country %></p>
+        <p>lastUpdate : <%= api[key].lastUpdate %></p>
+        <p>confirmed : <%= api[key].confirmed %></p>
+        <p>deaths : <%= api[key].deaths %></p>
+        <p>recovered : <%= api[key].recovered %></p>
+        <hr>
+    <% } %>
+</div>

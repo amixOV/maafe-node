@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--link rel="prefetch" href="/img/single_img-1582809307412-DSC_2757.JPG"> לקאצ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/icon/croissant.png">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<%- style %> ">
+
+    <script type="text/javascript" src="/script/materialize.min.js" feder></script>
+    <script type="text/javascript" src="/script/index.js" feder></script>
+
+    <title>maafe male - <%- title %></title>
+</head>
+<body>
+    <%- include('../part/header'); %> 
+    <div class="row">
+      <div id="panel_side" class="col s0 m2 not-mobile">
+        <%- include('../part/panel'); %>
+      </div>
+      <div class="col s12 m10">
+        <%- body %> 
+      </div>
+    </div>
+    <div class="row">
+      <%- include('../part/footer'); %> 
+    </div>
+  
+</body>
+</html>

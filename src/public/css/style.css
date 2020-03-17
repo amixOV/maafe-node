@@ -1,56 +1,137 @@
-body{
-   background-color: rgb(163, 73, 0);
-   color: rgb(255, 255, 255);
-   margin: 0;
-}
-h1{
 
-    background-color: rgb(238, 198, 68);
+
+:root{
+  font-size: 16px;
+  --text-primary:rgb(255, 216, 133);
+  --text-secondary:rgb(255, 216, 133);
+  --bg-primary: rgb(200, 109, 34);
+  --bg-secondary:rgb(163, 73, 0);
+  
+}
+
+body{
+   background-color: var(--bg-primary);
+}
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+ 
+body::-webkit-scrollbar-track {
+  background-color: var(--bg-secondary);
+  box-shadow: inset 0 0 0.2rem rgb(47, 31, 0);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color:rgb(47, 31, 0);
+  box-shadow: inset 0 0 0.1rem var(--bg-secondary);
+}
+
+.row{
+  margin-bottom: auto;
+}
+
+#panel_side {
+  top: 4rem;
+  position: sticky;
+  background-color: rgb(47, 31, 0);
+  color: var(--text-primary);
+  float: right;
+  height: 100vh;
+  text-align: center;
+  right: 0;
+}
+
+#panel_side a {
+  
+  text-align: center;
+  font-size: 25px;
+  color: var(--text-primary);
+}
+
+#panel_side ul{
+  position: sticky;
+  top: 5rem;
+}
+
+#panel_side a:hover {
+  color: #f1f1f1;
+}
+
+
+h1{
+    text-align: center;
     color: rgb(59, 35, 4);
 }
+
+h3{
+  text-align: center;
+}
+
+.input-field .prefix.active, .collection-item.active{
+  color: rgb(0, 194, 90);
+}
+.input-field>label, label{
+  color: var(--text-primary);
+
+}
+input:not([type]), input[type=text]:not(.browser-default), 
+input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), 
+input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), 
+input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), 
+input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), 
+input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), 
+textarea.materialize-textarea{
+  border-bottom: 1px solid var(--text-primary);
+}
+
+
+#button{
+  background-color: rgb(1, 189, 48);
+}
+
+.btn{
+  background-color: rgb(1, 189, 48);
+
+}
+
+.btn:hover {
+  background-color:rgb(0, 194, 90);
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: rgb(0, 194, 90);
+}
+
+#arrow_product{
+  text-align: right;
+  margin-top: 60px;
+}
+
+.nav, .nav-wrapper , .page-footer{
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
 #loader {
+  
   display: none;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
- 
-  margin: -75px 0 0 -75px;
-  border: 16px solid #c28b26;
-  border-radius: 50%;
-  border-top: 16px solid #793c03;
+  left: 45%;
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
-}
-
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
-}
-
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
+  
 }
 
 #error {
@@ -65,4 +146,36 @@ h1{
   text-size-adjust: 10px;
   font-size: xx-large;
 
+}
+
+.spinner-green1{
+  border-color: rgb(1, 246, 62);
+}
+.spinner-green2{
+  border-color: rgb(1, 189, 48);
+}
+.spinner-green3{
+  border-color: rgb(0, 126, 31);
+}
+.spinner-green4{
+  border-color: rgb(1, 95, 25);
+}
+.just-mobile{
+  display: none;
+}
+
+.item_row{
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 950px) {
+  .just-mobile{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .not-mobile{
+    display: none;
+  }
 }
