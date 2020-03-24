@@ -68,30 +68,9 @@ router.get('/logs', async (req, res) => {
                 res(data)
             })
         })
-
+        
     }
     let data = await getData();
-    let object = data[0].ip;
-    for (const key in object) {
-        if (object.hasOwnProperty(key)) {
-            const object2 = object[key];
-            for (const key2 in object2) {
-                if (object2.hasOwnProperty(key2)) {
-                    const object3 = object2[key2];
-                    for (const key3 in object3) {
-                        if (object3.hasOwnProperty(key3)) {
-                            const element = object3[key3];
-                            
-                            console.log(key3, element);
-                            console.log('--------------------------');
-                        }
-                    }
-                }
-            }
-            
-            
-        }
-    }
 
     //console.log(data[0].ip);
     res.render('logs', { title: 'logs', style, data });

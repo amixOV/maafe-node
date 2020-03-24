@@ -6,20 +6,32 @@
         <tr>
             <td> time :  <%= ele.time %> </td>
             <% let data2 = ele.broswer %> 
+            <td> broswer </td>
             <% for (const key2 in data2) { %>
                 <% if (data2.hasOwnProperty(key2)) { %>
                     <%  const ele2 = data2[key2]; %> 
-                    <td> broswer : <%# ele2 %> </td>
+                    <td> <%= key2 %> : <%= ele2 %> </td>
                 <% } %>
             <% } %>
-            <% let data3 = ele.ip %> 
-            <% for (const key3 in data3) { %>
-                <% if (data3.hasOwnProperty(key3)) { %>
-                    <%  const ele3 = data3[key3]; %> 
-                    <% ele3.forEach(e => { %>
+            <% let ipObj1 = ele.ip %> 
+            <td> ip </td>
+
+            <% for (const ipKey1 in ipObj1) { %>
+                <% if (ipObj1.hasOwnProperty(ipKey1)) { %>
+                    <% const ipObj2 = ipObj1[ipKey1]; %> 
                      
-                        <td> ip : <%= e %> </td>
-                    <% }) %>
+                    <% for (const ipKey2 in ipObj2) { %>
+                        <% if (ipObj2.hasOwnProperty(ipKey2)) { %> 
+                            <% const ipObj3 = ipObj2[ipKey2]; %>
+                           
+                            <% for (const ipKey3 in ipObj3) { %>
+                                <% if (ipObj3.hasOwnProperty(ipKey3)) { %>
+                                    <%  const eleIp = ipObj3[ipKey3]; %>                         
+                                    <td><%= ipKey3 %> : <%= eleIp %> </td>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                    <% } %>
                 <% } %>
             <% } %>
             
