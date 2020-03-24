@@ -1,0 +1,48 @@
+
+<table>
+    <% for (const key in data) { %>
+        <% if (data.hasOwnProperty(key)) { %>
+            <%  const ele = data[key]; %> 
+        <tr>
+            <td> time :  <%= ele.time %> </td>
+            <% let data2 = ele.broswer %> 
+            <% for (const key2 in data2) { %>
+                <% if (data2.hasOwnProperty(key2)) { %>
+                    <%  const ele2 = data2[key2]; %> 
+                    <td> broswer : <%# ele2 %> </td>
+                <% } %>
+            <% } %>
+            <% let data3 = ele.ip %> 
+            <% for (const key3 in data3) { %>
+                <% if (data3.hasOwnProperty(key3)) { %>
+                    <%  const ele3 = data3[key3]; %> 
+                    <% ele3.forEach(e => { %>
+                     
+                        <td> ip : <%= e %> </td>
+                    <% }) %>
+                <% } %>
+            <% } %>
+            
+
+        </tr>
+        <% } %>
+    <% } %>
+
+</table>
+
+
+<script>
+/*
+    console.log(typeof(data) );
+                array.forEach(element => {
+                    
+                });
+                for (const key in object) {
+                    if (object.hasOwnProperty(key)) {
+                        const element = object[key];
+                        
+                    }
+                }
+                console.log(data[0].time);
+   */                 
+</script>

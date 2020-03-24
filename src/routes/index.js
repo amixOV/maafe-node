@@ -55,4 +55,46 @@ router.get('/product_item/:id/:name/:cost', (req, res) => {
     });
 });
 
+router.get('/logs', async (req, res) => {
+    logData(req);
+    const fs = require('fs');
+    
+    getData = () => {
+        return new Promise( (res, rej)  => {
+            fs.readFile('log_data.json', (err, data) => {
+                if(err) rej(err);
+                //console.log(data);
+                data = JSON.parse(data);
+                res(data)
+            })
+        })
+
+    }
+    let data = await getData();
+    let object = data[0].ip;
+    for (const key in object) {
+        if (object.hasOwnProperty(key)) {
+            const object2 = object[key];
+            for (const key2 in object2) {
+                if (object2.hasOwnProperty(key2)) {
+                    const object3 = object2[key2];
+                    for (const key3 in object3) {
+                        if (object3.hasOwnProperty(key3)) {
+                            const element = object3[key3];
+                            
+                            console.log(key3, element);
+                            console.log('--------------------------');
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+    }
+
+    //console.log(data[0].ip);
+    res.render('logs', { title: 'logs', style, data });
+})
+
 module.exports = router;

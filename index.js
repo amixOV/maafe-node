@@ -31,6 +31,7 @@
   app.get('/customer_item/:name', indexRouter);
   app.get('/recipes', indexRouter);
   app.get('/help', indexRouter);
+  app.get('/logs', indexRouter);
   
   app.post('/send_data', productRouter);
   app.post('/db_data', productRouter);
