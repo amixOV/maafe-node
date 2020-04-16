@@ -24,7 +24,7 @@ let myForm = document.getElementById('myForm');
             
             formobj[pair[0]] = pair[1];
          }
-        console.log(formobj);
+        //console.log(formobj);
         const name = formobj.customer_name;
         const phone = formobj.customer_phone;
         const mail = formobj.customer_mail;
@@ -46,6 +46,7 @@ let myForm = document.getElementById('myForm');
                 'Content-Type': 'application/json'
             }
         }
+        console.log(formobj);
         
         fetch('/send_data', option)
         .then(res => res.text())

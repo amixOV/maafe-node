@@ -13,8 +13,11 @@ insertToDB = (data, page) => {
       if (page === 'customer') {
         module = require('../mongoose_model/customer_module.js');
       }
-      if (page === 'product') {
+      if (page === 'productAdmin') {
         module = require('../mongoose_model/product_module.js');
+      }
+      if (page === 'register') {
+        module = require('../mongoose_model/customer_module.js');
       }
       let newpro = new module( data );
       newpro.save( ( err, module ) => {

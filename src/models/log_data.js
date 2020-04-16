@@ -15,7 +15,7 @@ logData = (req) =>{
     ipJson.ip = os.networkInterfaces();
     ipJson.broswer = broswerData;
     
-    fs.exists('log_data.json', function (exists) {
+    fs.exists('log_data.json',  (exists) => {
         if (exists) {
             fs.readFile('log_data.json', function (err, data) {
                 if (err) throw err;
@@ -24,6 +24,7 @@ logData = (req) =>{
         
                 fs.writeFile("log_data.json", JSON.stringify(json), (err, r) => {
                     if (err) throw err;
+                    console.log('the customer data write to log');
                     
                 })
             });
@@ -33,6 +34,7 @@ logData = (req) =>{
             const json = JSON.stringify(data);
             fs.appendFile('log_data.json', json , function (err) {
                 if (err) throw err;
+                console.log('the customer data write to log');
                 
             });
         }

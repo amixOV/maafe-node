@@ -1,0 +1,25 @@
+<h3><%= title %> </h3>
+<%- include ('./part/messege') %> 
+<form action="/login" method="post">
+    <div class="row">
+        <div class="input-field col s4 push-s2">
+          <i class="material-icons prefix">account_circle</i>
+          <input name="name" id="name" type="text" class="validate" required>
+          <label for="name" data-error="wrong" data-success="right">name</label>
+          <span class="helper-text" data-error="שדה חובה" data-success="right"></span>
+        </div>
+
+        <div class="input-field col s4 push-s2">
+            <i class="material-icons prefix">fingerprint</i>
+            <input name="password" id="password" type="password" class="validate">
+            <label for="password">password</label>
+            <span class="helper-text" data-error="worng" data-success="right"></span>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn waves-effect waves-light btn-large col s4 push-s4" type="submit" name="action">כניסה
+            <i class="material-icons left">subdirectory_arrow_left</i>
+        </button>
+    </div>
+</form>

@@ -1,10 +1,20 @@
 <h3>wellcome to maffe maale</h3>
+<%- include ('./part/messege') %>
 <div class="row">
-    <%- include('./part/carusel'); %>
-    
+    <%- include('./part/carusel'); %>  
 </div>
+<% if (api.errno) { %>
+    <% console.log(api) %> 
+    <div class="card-panel red darken-4" >
+        <h5><%= api %>  </h5>
+    </div>
+<% }else{ %>
+
 <div>
+    <% let x = 0; %> 
     <% for (var key in api) { %>
+        <%  x++ %> 
+        <p><%= x %> </p>
         <p>מחוז : <%= api[key].province %></p>
         <p>ארץ : <%= api[key].country %></p>
         <p>lastUpdate : <%= api[key].lastUpdate %></p>
@@ -13,4 +23,7 @@
         <p>recovered : <%= api[key].recovered %></p>
         <hr>
     <% } %>
+
 </div>
+<% } %>
+ 

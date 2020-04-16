@@ -20,7 +20,7 @@ getData =  queryObj => {
     .catch ((err) => {
         errorMessege('ERROR : from fetch db data');
         console.error(err);
-        console.error(err.neme);
+        console.error(err.name);
         console.error(err.messege);
     })
 }

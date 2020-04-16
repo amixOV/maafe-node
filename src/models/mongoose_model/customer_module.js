@@ -16,6 +16,11 @@ const Schema = mongoose.Schema;
       customer_mail:{
         type:  String,
         unique: true
+      },
+      customer_password:{
+        type:  String,
+        required: true,
+        unique: true
       }
     });
 

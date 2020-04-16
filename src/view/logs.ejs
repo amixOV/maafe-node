@@ -28,7 +28,9 @@
                                 <% if (ipObj3.hasOwnProperty(ipKey3)) { %>
                                     <%  const eleIp = ipObj3[ipKey3]; %>                         
                                     <td><%= ipKey3 %> : <%= eleIp %> </td>
-                                <% } %>
+                                    <% }else{ %>
+                                    <td>--------<%= ipKey3 %> : <%= eleIp %>-------</td>
+                                <%  } %>
                             <% } %>
                         <% } %>
                     <% } %>

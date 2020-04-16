@@ -11,9 +11,14 @@ let getCovid = () => {
     });
     return new Promise((resolve, rej) => {
         request.end ( res => {
-            if (res.error) rej (res.error);
-            let api = res.body.data.covid19Stats
-            resolve(api)
+            if (res.error) {
+                console.log(res.error);
+                rej (res.error);
+                
+            }else{
+                let api = res.body.data.covid19Stats;
+                resolve(api)
+            }
         });
     });
  }

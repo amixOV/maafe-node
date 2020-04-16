@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     let ele_side = document.querySelectorAll('.sidenav');
     let options = {};
     let instances_side = M.Sidenav.init(ele_side, options);
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //console.log(instance);
     //instance.next();
 
-    //instance.next(3);
+    // instance.next(3);
 });
 
 /*   Its done with CSS 

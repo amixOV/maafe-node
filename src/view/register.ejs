@@ -1,0 +1,49 @@
+<h3><%= title %> </h3>
+
+<%- include ('./part/messege') %> 
+<% let nameForm, mailForm, passForm, phoneForm; %> 
+<% if ( typeof arrForm !== "undefined") { %>  
+    <% nameForm = arrForm.customer_name %> 
+    <% mailForm = arrForm.customer_mail %> 
+    <% phoneForm = arrForm.customer_phone %> 
+    <% passForm = arrForm.customer_password %> 
+    <div class="card-panel red darken-4" >
+        <h5>השם המייל או הטלפון </h5>
+        <h5>שהכנסת בשימוש </h5>
+    </div>
+<% } %>
+ 
+<form action="/register" method="post">
+    <div class="row">
+        <div class="input-field col s4 push-s2">
+          <i class="material-icons prefix">account_circle</i>
+          <input value="<%= nameForm ? nameForm : ''%>" name="customer_name" id="name" type="text" class="validate" required>
+          <label for="name" data-error="wrong" data-success="right">name</label>
+          <span class="helper-text" data-error="שדה חובה" data-success="right"></span>
+        </div>
+        <div class="input-field col s4 push-s2">
+          <i class="material-icons prefix">email</i>
+          <input value="<%= mailForm ? mailForm : ''%>" name="customer_mail" id="email" type="email" class="validate">
+          <label for="email">email</label>
+          <span class="helper-text" data-error="האימייל לא תקין" data-success="right"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s4 push-s2">
+            <i class="material-icons prefix">phone</i>
+            <input value="<%= phoneForm ? phoneForm : ''%>" name="customer_phone" id="phone" type="tel" class="validate">
+            <label for="phone">מס טלפון</label>
+          </div>
+        <div class="input-field col s4 push-s2">
+            <i class="material-icons prefix">fingerprint</i>
+            <input value="<%= passForm ? passForm : ''%>" name="customer_password" id="password" type="password" class="validate">
+            <label for="password">password</label>
+            <span class="helper-text" data-error="worng" data-success="right"></span>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn waves-effect waves-light btn-large col s4 push-s4" type="submit" name="action">Submit
+            <i class="material-icons left">send</i>
+        </button>
+    </div>
+</form>
