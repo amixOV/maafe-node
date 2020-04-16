@@ -1,4 +1,12 @@
+
 document.addEventListener('DOMContentLoaded', function() {
+
+    var ele_floatButton = document.querySelectorAll('.fixed-action-btn');
+    var ins_floatButton = M.FloatingActionButton.init(ele_floatButton, {
+       // toolbarEnabled: true,
+        direction: 'buttom',
+        hoverEnabled: false
+    });
 
     let ele_side = document.querySelectorAll('.sidenav');
     let options = {};

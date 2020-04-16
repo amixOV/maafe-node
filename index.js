@@ -79,14 +79,7 @@
   app.get('/404', errorRouter);
   
   app.use( (req, res, next) => {
-   // app.get('/404', errorRouter);
-    //res.status(404).send("Sorry can't find that!");
-    console.log('Sorry cant find this page!');
-   // app.get('/404', errorRouter);
-    //app.get('/404', errorRouter)
     res.status(404).redirect('/404')
-    //res.render('error/404', { title: '404' })
-    //res.status(401).render('error/404', { title: '401' });
     next();
   })
  

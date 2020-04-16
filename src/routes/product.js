@@ -30,6 +30,9 @@ router.post('/send_data',  async (req, res, next) => {
 });
 
 router.post('/db_data', async (req, res, next) => {
+  if (!req.session.loggedIn) {
+    res.status(401).render('error/401', { title: '401', style });
+}
   const dataFromDB = require('./../../src/models/server/get_data.js');
   const queryObj = req.body;
  
@@ -51,6 +54,9 @@ router.post('/db_data', async (req, res, next) => {
 });  
 
 router.post('/saveImage', async (req, res, next) => {
+  if (!req.session.loggedIn) {
+    res.status(401).render('error/401', { title: '401', style });
+}
   const sendImg = require('../models/server/upload_handle.js');
   try {
     let ans = await sendImg(req, res);

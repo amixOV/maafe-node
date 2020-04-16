@@ -19,11 +19,17 @@ router.use((req, res, next) => {
 */
 router.get('/customer', (req, res) => {
     //logData(req);
+    if (!req.session.loggedIn) {
+        res.status(401).render('error/401', { title: '401', style });
+    }
     res.render('admin/customer', { title: 'customer', style });
 })
 
 router.get('/customer_item/:name', (req, res) => {
     //logData(req);
+    if (!req.session.loggedIn) {
+        res.status(401).render('error/401', { title: '401', style });
+    }
     res.render('admin/customer_item', {
         title: req.params.name,
         name: req.params.name,
@@ -33,16 +39,25 @@ router.get('/customer_item/:name', (req, res) => {
 
 router.get('/recipes', (req, res) => {
     //logData(req);
+    if (!req.session.loggedIn) {
+        res.status(401).render('error/401', { title: '401', style });
+    }
     res.render('admin/recipes', { title: 'recipes', style });
 })
 
 router.get('/productAdmin', (req, res) => {
     //logData(req);
+    if (!req.session.loggedIn) {
+        res.status(401).render('error/401', { title: '401', style });
+    }
     res.render('admin/productAdmin', { title: 'productAdmin', style });
 })
 
 router.get('/product_item/:id/:name/:cost', (req, res) => {
     //logData(req);
+    if (!req.session.loggedIn) {
+        res.status(401).render('error/401', { title: '401', style });
+    }
     const pro = {
         id:req.params.id,
         name:req.params.name,

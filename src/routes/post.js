@@ -10,7 +10,7 @@ router.use(flash());
 router.use(express.json({limit:"100kb"}));
 
 router.post('/register', async (req, res) => {
- 
+
   let arrForm = {};
   try{
     delete req.body.action;
@@ -33,6 +33,7 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', async (req, res, next) => {
+
   const dataFromDB = require('./../../src/models/server/get_data.js');
   const page = path.basename(req.headers.referer);
   const queryObj = {customer_name : req.body.name};

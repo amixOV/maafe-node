@@ -6,6 +6,12 @@
   --text-secondary:rgb(255, 216, 133);
   --bg-primary: rgb(200, 109, 34);
   --bg-secondary:rgb(163, 73, 0);
+  --bg-thierd:rgb(199, 92, 5);
+  --green1: rgb(1, 246, 62);
+  --green2: rgb(1, 189, 48);
+  --green3: rgb(0, 126, 31);
+  --green4: rgb(1, 95, 25);
+  --green5: rgb(0, 80, 20);
   
 }
 
@@ -158,18 +164,22 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 .spinner-green1{
-  border-color: rgb(1, 246, 62);
+  border-color: var(--green1);
 }
 .spinner-green2{
-  border-color: rgb(1, 189, 48);
+  border-color:  var(--green2)
 }
 .spinner-green3{
-  border-color: rgb(0, 126, 31);
+  border-color:  var(--green3)
 }
 .spinner-green4{
-  border-color: rgb(1, 95, 25);
+  border-color:  var(--green4)
 }
 .just-mobile{
+  display: none;
+}
+
+.from-medium{
   display: none;
 }
 
@@ -177,7 +187,36 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   cursor: pointer;
 }
 
+.fixed-action-btn{
+  top: 4rem;
+}
+
+.btn-floating{
+  background-color:var(--bg-secondary);
+
+}
+
+.btn-floating:hover{
+  background-color:var(--bg-thierd);
+
+}
+
+.fixed-action-btn ul{
+  bottom: auto;
+  margin-top: 1rem;
+}
+
+.wait{
+  transition-delay:  0.4s;
+}
+
 @media only screen and (max-width: 950px) {
+  .from-medium{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .just-mobile{
     display: block;
   }
@@ -187,4 +226,9 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   .not-mobile{
     display: none;
   }
+}
+
+.aa{
+  padding-top: 0.5rem;
+  color:var(--text-secondary);
 }
