@@ -6,6 +6,10 @@
   const express = require('express');
   const app = express();
   const path = require('path');
+  const session = require('express-session');
+  const flash = require('connect-flash');
+  app.use(flash());
+  //const checkUser = require('./src/models/check_user');
   const expressLayouts = require('express-ejs-layouts');
   
   const PORT = 5500;
@@ -16,21 +20,7 @@
   const adminRouter = require('./src/routes/admin.js');
   const errorRouter = require('./src/routes/error.js');
 
-  const session = require('express-session');
-  const flash = require('connect-flash');
-
-  app.use(flash());
-
-  app.set('views', path.join(__dirname, 'src/view'));
-  app.set('view engine', 'ejs');
-  app.set('layout', 'layouts/layout');
-  app.use(expressLayouts);
-
-  app.listen(process.env.PORT || PORT, () => {
-    console.log('app listening in port :' + PORT);
-  });
-
-  app.use(express.static(__dirname + '/src/public'));
+  
 
   app.use(session({
     secret: 'secret',
@@ -50,6 +40,18 @@
     res.locals.msg = req.flash('loginMsg')
     next();
   })
+
+  app.set('views', path.join(__dirname, 'src/view'));
+  app.set('view engine', 'ejs');
+  app.set('layout', 'layouts/layout');
+  app.use(expressLayouts);
+  //app.use(checkUser());
+
+  app.listen(process.env.PORT || PORT, () => {
+    console.log('app listening in port :' + PORT);
+  });
+
+  app.use(express.static(__dirname + '/src/public'));
 
   app.get('/', indexRouter);
   app.get('/help', indexRouter);
