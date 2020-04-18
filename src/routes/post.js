@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const bcrypt = require('bcrypt');
 const flash = require('connect-flash');
+const fs = require('fs');
 
 const style = '/css/style.css';
 router.use(express.urlencoded({extended: false }));
@@ -73,5 +74,31 @@ router.post('/login', async (req, res, next) => {
     next( error)
   }
 })
+
+router.post('/carusel_img', async (req, res) => {
+
+    const imgPath = path.join(__dirname, '../public/img');
+   // return new Promise( (resolve, rej)  => {
+      try {
+        
+        let imgArr = [];
+        fs.readdir(imgPath, (err, files) => {
+          if(err) rej(err);
+          let imgFile;
+          
+          files.forEach(file => {
+            imgFile = path.join('/img/' + file);
+            imgArr.push(imgFile);
+          });
+          console.log(imgArr);
+          res.send(imgArr)
+        })
+      } catch (error) {
+          console.log(error);
+          res.send(error)
+      }
+
+        
+});
 
 module.exports = router;

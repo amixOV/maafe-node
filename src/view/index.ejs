@@ -1,7 +1,8 @@
 <h3>wellcome to maffe maale</h3>
 <%- include ('./part/messege') %>
-<div class="row">
-    <%- include('./part/carusel'); %>  
+<div  id="carusel">
+    
+    <%#- include('./part/carusel'); %>  
 </div>
 <% if (api.errno) { %>
     <% console.log(api) %> 
@@ -26,4 +27,5 @@
 
 </div>
 <% } %>
+<script src="script/main.js"></script>
  

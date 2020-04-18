@@ -110,6 +110,7 @@ let img = document.getElementById('single_img');
           method: 'POST',
           body: formData
         })
+        
         .then(response => response.text())
         //.then(response => response.json())
         .then(data => {
