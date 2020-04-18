@@ -32,6 +32,8 @@ document.addEventListener('scroll', function(e){
 
 }, true);
 */
+
+/*
 initCArusel = () => {
     let ele_carusel = document.querySelectorAll('.carousel');
     let ele_carus = document.querySelector('#carus');
@@ -86,5 +88,5 @@ initCArusel = () => {
        
         console.log(carusel);
     }
-
+*/
 });
