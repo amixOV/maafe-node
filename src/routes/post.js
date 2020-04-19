@@ -77,28 +77,62 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/carusel_img', async (req, res) => {
 
-    const imgPath = path.join(__dirname, '../public/img');
-   // return new Promise( (resolve, rej)  => {
-      try {
+  const imgPath = path.join(__dirname, '../public/img');
+    try {     
+      let imgArr = [];
+      fs.readdir(imgPath, (err, files) => {
+        if(err) throw (err);
+        let imgFile;
         
-        let imgArr = [];
-        fs.readdir(imgPath, (err, files) => {
-          if(err) rej(err);
-          let imgFile;
-          
-          files.forEach(file => {
-            imgFile = path.join('/img/' + file);
-            imgArr.push(imgFile);
-          });
-          console.log(imgArr);
-          res.send(imgArr)
-        })
-      } catch (error) {
-          console.log(error);
-          res.send(error)
-      }
-
+        files.forEach(file => {
+          imgFile = path.join('/img/' + file);
+          imgArr.push(imgFile);
+        });
+        //console.log(imgArr);
+        res.send(imgArr)
+      })
+    } catch (error) {
+        console.log(error);
+        res.send(error)
+    }
         
 });
+
+router.post('/api_covid', async (req, res) => {
+  let getCovid = () => {
+    const unirest = require("unirest");
+    const request = unirest("GET", "https://covid-193.p.rapidapi.com/statistics");
+    request.query({
+     // "country": "ALL"
+    });
+    request.headers({
+      "x-rapidapi-host": "covid-193.p.rapidapi.com",
+      "x-rapidapi-key": "df6359d5c3msh31755b2a56b1a69p14c7b6jsn0a9fd72cd8dd"
+    });
+    return new Promise((resolve, rej) => {
+      request.end ( res => {
+        if (res.error) {
+          console.log(res.error);
+          rej (res.error);
+            
+        }else{
+          let api = res.body.response;              
+          resolve(api)
+        }
+      });
+    });
+  }
+  try{
+    data = await getCovid()
+    //console.log(data);
+    
+    res.send(data);
+    res.end;
+  }catch(error){
+    console.log(error);
+    res.send(error);
+    res.end;
+  }
+})
 
 module.exports = router;

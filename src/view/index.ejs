@@ -1,31 +1,27 @@
 <h3>wellcome to maffe maale</h3>
 <%- include ('./part/messege') %>
-<div  id="carusel">
-    
-    <%#- include('./part/carusel'); %>  
-</div>
-<% if (api.errno) { %>
-    <% console.log(api) %> 
-    <div class="card-panel red darken-4" >
-        <h5><%= api %>  </h5>
-    </div>
-<% }else{ %>
+<div id="carusel"> </div>
+<h1>covid19</h1>
 
-<div>
-    <% let x = 0; %> 
-    <% for (var key in api) { %>
-        <%  x++ %> 
-        <p><%= x %> </p>
-        <p>מחוז : <%= api[key].province %></p>
-        <p>ארץ : <%= api[key].country %></p>
-        <p>lastUpdate : <%= api[key].lastUpdate %></p>
-        <p>confirmed : <%= api[key].confirmed %></p>
-        <p>deaths : <%= api[key].deaths %></p>
-        <p>recovered : <%= api[key].recovered %></p>
-        <hr>
-    <% } %>
-
-</div>
-<% } %>
+    <table>
+        <thead>
+            <tr>
+                <th>מדינה</th>
+                <th>מקרים חדשים</th>
+                <th>חולים פעילים</th>
+                <th>במצב קריטי</th>
+                <th>החלימו</th>
+                <th>סה"כ חולים</th>
+                <th>מוות חדשים</th>
+                <th>סה"כ מקרי מוות</th>
+                <th>סה"כ נבדקו</th>
+                <th>עודכן ביום</th>
+                <th>בשעה</th>
+            </tr>
+        </thead>
+        <%- include('./part/loader'); %>   
+        <tbody id='covid'></tbody>
+    </table>
+<script src="script/loader.js"></script>
 <script src="script/main.js"></script>
  

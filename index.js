@@ -71,6 +71,7 @@
   app.post('/register', postRouter);
   app.post('/login', postRouter);
   app.post('/carusel_img', postRouter);
+  app.post('/api_covid', postRouter);
 
   app.get('/product_item/:id/:name/:cost', adminRouter);
   app.get('/productAdmin', adminRouter);

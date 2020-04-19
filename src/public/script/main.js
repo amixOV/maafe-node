@@ -51,5 +51,50 @@ initCArusel = () => {
         });
        
     }
+    
+    turn('on');
+    fetch('/api_covid', { 
+        method: 'POST'
+    })
+    .then(res => res.text())
+    .then(data => {  
+        data = JSON.parse(data);
+        console.log(data) ;     
+        return data;
+    })
+    .then(data => {
+        turn('off')
+        insertToCovid(data);
 
+    })
+    .catch((err) => {
+        console.log(err); 
+    })
+    insertToCovid = data => {
+       let covid = document.getElementById('covid');
+
+       for (const key in data) {
+           if (data.hasOwnProperty(key)) {
+               const e = data[key];
+               covid.innerHTML += `
+               <tr>
+                <td>${e.country}</td>
+                <td>${e.cases.new}</td>
+                <td>${e.cases.active}</td>
+                <td>${e.cases.critical}</td>
+                <td>${e.cases.recovered}</td>
+                <td>${e.cases.total}</td>
+                <td>${e.deaths.new}</td>
+                <td>${e.deaths.total}</td>
+                <td>${e.tests.total}</td>
+                <td>${e.day}</td>
+                <td>${e.time}</td>
+               </tr>
+               
+               `
+               
+               
+           }
+       }
+    }
 })

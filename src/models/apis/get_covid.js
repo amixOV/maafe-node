@@ -1,6 +1,7 @@
 const unirest = require("unirest");
 
 let getCovid = () => {
+    
     const request =  unirest("GET", "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats");
     request.query({
         "country": "All"

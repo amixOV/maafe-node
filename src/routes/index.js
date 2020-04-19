@@ -39,10 +39,10 @@ router.use((req, res, next) => {
 
 
 router.get('/', async (req, res) => {
-    
-    //const getCovid = require('./../models/apis/get_covid.js');
-    //const imgPath = require('./../models/img_path.js');
-/*
+    /*
+    const getCovid = require('./../models/apis/get_covid.js');
+    const imgPath = require('./../models/img_path.js');
+
     let api;
     try {
         api = await getCovid();
@@ -52,10 +52,10 @@ router.get('/', async (req, res) => {
         console.log(error);
         
     }
+    
+    const imgArr = await imgPath();
     */
-    //const imgArr = await imgPath();
-    let api = 'aaa';
-    res.render('index', { title: 'home page', style, api});//, imgArr
+    res.render('index', { title: 'home page', style});//, imgArr, api
 });
 
 
