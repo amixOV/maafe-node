@@ -3,10 +3,11 @@
 :root{
   font-size: 16px;
   --text-primary:rgb(255, 216, 133);
-  --text-secondary:rgb(255, 216, 133);
+  --text-secondary:rgb(255, 188, 101);
   --bg-primary: rgb(200, 109, 34);
   --bg-secondary:rgb(163, 73, 0);
-  --bg-thierd:rgb(199, 92, 5);
+  --bg-thierd:rgba(175, 79, 0, 0.739);
+  --bg-opacity:rgba(175, 79, 0, 0.726);
   --green1: rgb(1, 246, 62);
   --green2: rgb(1, 189, 48);
   --green3: rgb(0, 126, 31);
@@ -56,12 +57,27 @@ body::-webkit-scrollbar-thumb {
 }
 
 #panel_side ul{
-  position: sticky;
+  position: fixed;
   top: 5rem;
 }
 
 #panel_side a:hover {
   color: #f1f1f1;
+}
+
+th{
+  background-color: var(--bg-opacity);
+  cursor: pointer;
+}
+@media only screen and (min-width: 992px) {
+  table {
+    position: relative;
+  }
+
+  th {
+    top: 4rem;
+    position: sticky;
+  }
 }
 
 

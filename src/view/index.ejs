@@ -1,10 +1,11 @@
+<link type="text/css" rel="stylesheet" href="css/tablesort.css">
 <h3>wellcome to maffe maale</h3>
 <%- include ('./part/messege') %>
 <div id="carusel"> </div>
 <h1>covid19</h1>
 
-    <table class="centered responsive-table">
-        <thead>
+    <table id="covid-table" class="centered left responsive-table">
+        <thead class="table-header">
             <tr>
                 <th>מדינה</th>
                 <th>מקרים חדשים</th>
@@ -15,13 +16,18 @@
                 <th>מוות חדשים</th>
                 <th>סה"כ מקרי מוות</th>
                 <th>סה"כ נבדקו</th>
-                <th>עודכן ביום</th>
-                <th>בשעה</th>
+                <th>...עודכן ב</th>
             </tr>
         </thead>
-        <%- include('./part/loader'); %>   
-        <tbody id='covid'></tbody>
+        <tbody id="covid">
+            <%- include('./part/loader'); %>   
+        </tbody>
     </table>
 <script src="script/loader.js"></script>
 <script src="script/main.js"></script>
+
+<script src='script/tablesort.min.js'></script>
+<script src='script/sorts/tablesort.number.min.js'></script>
+<script src='script/sorts/tablesort.date.min.js'></script>
+
  
