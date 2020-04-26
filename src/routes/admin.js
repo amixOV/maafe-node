@@ -1,6 +1,6 @@
 const express = require('express');
-const flash = require('connect-flash');
 const router = express.Router();
+const flash = require('connect-flash');
 
 const logData = require('../models/log_data.js')
 const style = '/css/style.css';

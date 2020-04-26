@@ -3,10 +3,15 @@ const Schema = mongoose.Schema;
 
     const productSchema = new Schema({
       product_id :{
-        type : String,
+      type : String,
         required: true,
         index: true,
         unique: true
+     
+        /* type: mongoose.Schema.Types.ObjectId,
+        index: true,
+        required: true,
+        auto: true, */
       },
 
       product_name :{
@@ -30,9 +35,18 @@ const Schema = mongoose.Schema;
       },
 
       multy_img:{
-        type: String,
-      }
+        type: String
+      },
+/* 
+      basic_product:{
+       type: schema.objectId,
+       ref: 'basic_product'
 
+      },
+      wheigt:{
+        type: Number
+      }   
+ */
     });
 
 module.exports = mongoose.model('product',  productSchema);

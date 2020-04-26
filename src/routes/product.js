@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const bcrypt = require('bcrypt');
+const style = '/css/style.css';
+
+
 router.use(express.json({limit:"100kb"}));
 router.post('/send_data',  async (req, res, next) => {
   //req.headers.referer
@@ -32,7 +35,7 @@ router.post('/send_data',  async (req, res, next) => {
 router.post('/db_data', async (req, res, next) => {
   if (!req.session.loggedIn) {
     res.status(401).render('error/401', { title: '401', style });
-}
+  }
   const dataFromDB = require('./../../src/models/server/get_data.js');
   const queryObj = req.body;
  

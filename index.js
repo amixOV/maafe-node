@@ -20,7 +20,10 @@
   const adminRouter = require('./src/routes/admin.js');
   const errorRouter = require('./src/routes/error.js');
 
-  
+console.log('this is first');
+
+  const newRout = require('./src/routes/aaa.js')
+  app.use('/aaa', newRout)
 
   app.use(session({
     secret: 'secret',

@@ -1,5 +1,7 @@
 
 const queryObj = {product_id: itemPro};
+//console.log({_id: itemPro});
+
 let imgSrc = document.getElementById('img_src');
 let content = document.getElementById('content');
 getData(queryObj)

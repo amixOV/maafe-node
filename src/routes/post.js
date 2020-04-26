@@ -4,8 +4,8 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const flash = require('connect-flash');
 const fs = require('fs');
-
 const style = '/css/style.css';
+
 router.use(express.urlencoded({extended: false }));
 router.use(flash());
 router.use(express.json({limit:"100kb"}));

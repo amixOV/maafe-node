@@ -137,11 +137,6 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   color: rgb(0, 194, 90);
 }
 
-#arrow_product{
-  text-align: right;
-  margin-top: 60px;
-}
-
 .nav, .nav-wrapper , .page-footer{
   background-color: var(--bg-secondary);
   color: var(--text-secondary);

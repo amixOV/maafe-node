@@ -2,9 +2,15 @@ const express = require('express');
 const flash = require('connect-flash');
 const router = express.Router();
 
-const logData = require('../models/log_data.js')
+const logData = require('../models/log_data.js');
 const style = '/css/style.css';
-
+// obj global
+// דפדפן חוסם קריאות של api
+// port standart 80
+// react port 3000
+// exios
+// svelt
+// ... obj
 router.use(flash());
 /*
 let loginMsg;
@@ -37,7 +43,6 @@ router.use((req, res, next) => {
 })
 
 
-
 router.get('/', async (req, res) => {
     /*
     const getCovid = require('./../models/apis/get_covid.js');
@@ -55,6 +60,7 @@ router.get('/', async (req, res) => {
     
     const imgArr = await imgPath();
     */
+   
     res.render('index', { title: 'home page', style});//, imgArr, api
 });
 

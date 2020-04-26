@@ -18,16 +18,15 @@
     <%- include('../part/header'); %>
     <div class="row">
     <% if (loggedIn) { %>
-          <%- include('../part/panel'); %>
-        <div class="col s12 m10">
+      <%- include('../part/panel'); %>
+      <div class="col s12 m10">
     <% }else{ %> 
 
-        <div class="col s12 m12">
+      <div class="col s12 m12">
     <% }  %>
-           
-          <%- body %> 
-        </div>
+    <%- body %> 
       </div>
+    </div>
      
     <div class="row">
       <%- include('../part/footer'); %> 

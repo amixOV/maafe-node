@@ -1,4 +1,3 @@
-
 const button = document.getElementById('button');
 let table = document.getElementById('table');
 let errorTag = document.getElementById('error');
@@ -6,6 +5,7 @@ let idArr = [];
 let nameArr = [];
 let myForm = document.getElementById('myForm');
 let img = document.getElementById('single_img');
+new Tablesort(document.getElementById('product-table'));
 
     // insert product to DB
     button.addEventListener('click', () => {
@@ -136,12 +136,28 @@ let img = document.getElementById('single_img');
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
                     const ele = data[key];
+                    console.log(ele._id);
+
                     let href = `/product_item/${ele.product_id}/${ele.product_name}/${ele.pro_cost}`
                     tWithData += `
-                        <tr class="item_row" onclick="document.location = '${href}'";>
-                            <td>${ele.product_id}</td>
-                            <td>${ele.product_name}</td>
-                            <td>${ele.pro_cost}</td>
+                        <tr class="item_row">
+                            <td onclick="document.location = '${href}'";>${ele.product_id}</td>
+                            <td onclick="document.location = '${href}'";>${ele.product_name}</td>
+                            <td onclick="document.location = '${href}'";>${ele.pro_cost}</td>
+                            <td>
+                                <a class="btn-floating halfway waves-effect waves-light tooltipped"
+                                   id="delete_button"    
+                                   data-position="bottom" 
+                                    data-tooltip="מחק מוצר זה">
+                                   <i class="material-icons">delete </i>
+                                </a>
+                                <a class="btn-floating halfway waves-effect waves-light tooltipped"
+                                href="#"    
+                                data-position="bottom" 
+                                   data-tooltip="ערוך מוצר זה">
+                                   <i class="material-icons">edit</i>
+                                </a>
+                            </td>
                         </tr>
                     `;
                     idArr.push(ele.product_id);
@@ -153,3 +169,8 @@ let img = document.getElementById('single_img');
             throw new error(err)
         }
     }
+    let deleteButton = document.getElementsId('delete_button');
+    deleteButton.addEventListener('click', () => {
+        
+    })
+

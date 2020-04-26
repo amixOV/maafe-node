@@ -1,21 +1,22 @@
 <h3>רשימת מוצרים</h3>      
 <%- include('./loader'); %> 
+<link type="text/css" rel="stylesheet" href="css/tablesort.css">
 <div id="error">ERROR : </div>
 <div class="row">
-  <div class="col s1 m2"></div>
-  <div class="col s9 m8">
-      <table class="responsive-table  centered highlight">
-      <tbody id="table">
-        <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>price</th>
-        </tr>  
-      </tbody>  
+  <div class="">
+      <table id="product-table" class="centered left  responsive-table highlight">
+        <thead class="table-header">
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+            <th> a</th>
+          </tr>  
+        </thead>
+        <tbody id="table"></tbody>  
     </table>
   </div>
-  <div class="col s2 m2 from-medium">
-    <i id="arrow_product" class="material-icons small keyboard_arrow_right">chevron_right</i>
-  </div>
 </div>
+<script src='script/tablesort.min.js'></script>
+<script src='script/sorts/tablesort.number.min.js'></script>
 

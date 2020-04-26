@@ -2,13 +2,13 @@
 <h3><%- title %></h3>
 <br>
 <div class="row">
-  <div class="col l2 m2"></div>
-  <div class="col l8 s12 m8">
+  <div class="col m6 push-m3 s12">
     <div class="card">
       <%- include('../part/loader'); %>  
       <div class="card-image">
         <img id="img_src">
         <span class="card-title"><%- pro.name %>  </span>
+        
       </div>
       <div class="card-content">
         <p id="content"> contant :</p>
@@ -16,11 +16,21 @@
         
       </div>
       <div class="card-action">
-        <a href="/productAdmin">back</a>
+        <a class="btn-floating halfway waves-effect waves-light tooltipped"
+            href="/productAdmin"  
+            data-position="bottom" 
+            data-tooltip="חזור"><i class="material-icons">undo </i></a>
+        <a class="btn-floating halfway waves-effect waves-light tooltipped"
+            data-position="bottom"
+            href="#" 
+            data-tooltip="מחק מוצר זה"><i class="material-icons">delete </i></a>
+        <a class="btn-floating halfway waves-effect waves-light tooltipped"
+            data-position="bottom" 
+            href="#"
+            data-tooltip="ערוך מוצר זה"><i class="material-icons">add</i></a>
       </div>
     </div>
   </div>
-  <div class="col l2 m2"></div>
 </div>
 <script>
   let itemPro = '<%= pro.id %>';
