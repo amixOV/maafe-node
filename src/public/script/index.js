@@ -1,17 +1,4 @@
-console.log(todoList[2].completed);
-let button = document.getElementById('butt');
-button.addEventListener('click', () => {
-    fetch('/aaa', {
-        method: 'POST',
-        body: todoList[2].completed
-    })
-    .then(data => {
-        console.log(data);
-        
-    })
-    
-})
-/* 
+
 document.addEventListener('DOMContentLoaded', function() {
     
     var ele_tooltipped = document.querySelectorAll('.tooltipped');
@@ -32,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
- */
+ 
 /*   Its done with CSS 
 
 document.addEventListener('scroll', function(e){ 

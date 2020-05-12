@@ -6,7 +6,10 @@ const style = '/css/style.css';
 
 
 router.use(express.json({limit:"100kb"}));
+
 router.post('/send_data',  async (req, res, next) => {
+  
+
   //req.headers.referer
   /*
   let hashPass = await bcrypt.hash(req.body.customer_password, 10);
@@ -18,6 +21,8 @@ router.post('/send_data',  async (req, res, next) => {
   
     try {
       const page = path.basename(req.headers.referer);
+      console.log(page);
+      
       if (page === 'customer') {
         let hashPass = await bcrypt.hash(req.body.customer_password, 10);
         req.body.customer_password = hashPass;

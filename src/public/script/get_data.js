@@ -1,3 +1,5 @@
+console.log('asdfasdfasfasfdasdfasfaf');
+
 getData =  queryObj => {
     
     const option = {

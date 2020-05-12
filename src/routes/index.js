@@ -4,6 +4,19 @@ const router = express.Router();
 
 const logData = require('../models/log_data.js');
 const style = '/css/style.css';
+/* 
+
+app.get('/', indexRouter);
+app.get('/help', indexRouter);
+app.get('/about', indexRouter);
+app.get('/product', indexRouter);
+app.get('/store', indexRouter);
+app.get('/contact', indexRouter);
+app.get('/logs', indexRouter);
+app.get('/login', indexRouter);
+app.get('/register', indexRouter);
+app.get('/logout', indexRouter);
+ */
 // obj global
 // דפדפן חוסם קריאות של api
 // port standart 80
@@ -12,56 +25,9 @@ const style = '/css/style.css';
 // svelt
 // ... obj
 router.use(flash());
-/*
-let loginMsg;
-router.use((req, res, next) => {
-    loginMsg = req.flash('loginMsg');
-    if (Object.keys(loginMsg).length === 0 ) {
-        console.log('------');
-        
-        console.log( typeof loginMsg);
-        loginMsg = false;
-    }
-    next();
-})
-*/
-router.use((req, res, next) => {
-
-    //req.session.sAmix = 'session amix';
-    //res.locals.lAmix = 'local amix';
-    //res.locals.loginMsg = 'you are connected !';
-    //console.log( res.locals.loginMsg );
-    //console.log( loginMsg );
-    //console.log( req.session );
-    //console.log( sAmix );
-    //console.log( req.session.sAmix);
-    //console.log( lAmix );
-    //console.log( req.sessionID );
-    //console.log(session.cookie.sAmix);
-    //res.locals.msg = req.flash('msg');
-    next();
-})
-
 
 router.get('/', async (req, res) => {
-    /*
-    const getCovid = require('./../models/apis/get_covid.js');
-    const imgPath = require('./../models/img_path.js');
-
-    let api;
-    try {
-        api = await getCovid();
-        
-    } catch (error) {
-        api = error;
-        console.log(error);
-        
-    }
-    
-    const imgArr = await imgPath();
-    */
-   
-    res.render('index', { title: 'home page', style});//, imgArr, api
+    res.render('index', { title: 'home page', style});
 });
 
 

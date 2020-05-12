@@ -128,6 +128,7 @@ new Tablesort(document.getElementById('product-table'));
     
     // fetch data for table from DB
     const queryObj = {}; //all data
+    
     getData(queryObj);
     insertToHtml = data => {
         try {
@@ -138,7 +139,7 @@ new Tablesort(document.getElementById('product-table'));
                     const ele = data[key];
                     console.log(ele._id);
 
-                    let href = `/product_item/${ele.product_id}/${ele.product_name}/${ele.pro_cost}`
+                    let href = `/admin/product_item/${ele.product_id}/${ele.product_name}/${ele.pro_cost}`
                     tWithData += `
                         <tr class="item_row">
                             <td onclick="document.location = '${href}'";>${ele.product_id}</td>
@@ -169,7 +170,7 @@ new Tablesort(document.getElementById('product-table'));
             throw new error(err)
         }
     }
-    let deleteButton = document.getElementsId('delete_button');
+    let deleteButton = document.getElementById('delete_button');
     deleteButton.addEventListener('click', () => {
         
     })

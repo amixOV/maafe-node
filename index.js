@@ -20,10 +20,8 @@
   const adminRouter = require('./src/routes/admin.js');
   const errorRouter = require('./src/routes/error.js');
 
-console.log('this is first');
+  //const newRout = require('./src/routes/aaa.js')
 
-  const newRout = require('./src/routes/aaa.js')
-  app.use('/aaa', newRout)
 
   app.use(session({
     secret: 'secret',
@@ -56,17 +54,10 @@ console.log('this is first');
 
   app.use(express.static(__dirname + '/src/public'));
 
-  app.get('/', indexRouter);
-  app.get('/help', indexRouter);
-  app.get('/about', indexRouter);
-  app.get('/product', indexRouter);
-  app.get('/store', indexRouter);
-  app.get('/contact', indexRouter);
-  app.get('/logs', indexRouter);
-  app.get('/login', indexRouter);
-  app.get('/register', indexRouter);
-  app.get('/logout', indexRouter);
-  
+  app.use('/', indexRouter);
+  app.use('/admin', adminRouter)
+  //app.use('/aaa', newRout);
+
   app.post('/send_data', productRouter);
   app.post('/db_data', productRouter);
   app.post('/saveImage', productRouter);
@@ -75,12 +66,6 @@ console.log('this is first');
   app.post('/login', postRouter);
   app.post('/carusel_img', postRouter);
   app.post('/api_covid', postRouter);
-
-  app.get('/product_item/:id/:name/:cost', adminRouter);
-  app.get('/productAdmin', adminRouter);
-  app.get('/customer', adminRouter);
-  app.get('/customer_item/:name', adminRouter);
-  app.get('/recipes', adminRouter);
 
   app.get('/401', errorRouter);
   app.get('/404', errorRouter);
